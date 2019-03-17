@@ -2,7 +2,7 @@
 
 namespace Diwire.Generation.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class RegisterTypeAttribute : Attribute
     {
         public RegisterTypeAttribute(Type fromType, Type toType, Lifetime lifetime = Lifetime.Singelton)

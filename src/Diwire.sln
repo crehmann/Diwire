@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diwire.Container", "Diwire.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diwire.Generation", "Diwire.Generation\Diwire.Generation.csproj", "{B1765AEF-C79E-4DFA-9C9E-D494DC3050E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diwire.Generation.Roslyn", "Diwire.Generation.Roslyn\Diwire.Generation.Roslyn.csproj", "{08FC2850-04B6-4A39-A9B0-46A46AF6E788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diwire.Generation.Roslyn.Analyzer", "Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer.csproj", "{424D6351-7717-418F-B561-C848FFA16E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diwire.Generation.Roslyn.Analyzer.Test", "Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer.Test\Diwire.Generation.Roslyn.Analyzer.Test.csproj", "{E063A18C-6A9D-48D7-B055-D7D69309273D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diwire.Generation.Roslyn.Analyzer.Vsix", "Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer.Vsix\Diwire.Generation.Roslyn.Analyzer.Vsix.csproj", "{0A1D566C-D20F-474D-A576-9DF6A389A872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +35,22 @@ Global
 		{B1765AEF-C79E-4DFA-9C9E-D494DC3050E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1765AEF-C79E-4DFA-9C9E-D494DC3050E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1765AEF-C79E-4DFA-9C9E-D494DC3050E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FC2850-04B6-4A39-A9B0-46A46AF6E788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FC2850-04B6-4A39-A9B0-46A46AF6E788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FC2850-04B6-4A39-A9B0-46A46AF6E788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FC2850-04B6-4A39-A9B0-46A46AF6E788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424D6351-7717-418F-B561-C848FFA16E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424D6351-7717-418F-B561-C848FFA16E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424D6351-7717-418F-B561-C848FFA16E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424D6351-7717-418F-B561-C848FFA16E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E063A18C-6A9D-48D7-B055-D7D69309273D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E063A18C-6A9D-48D7-B055-D7D69309273D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E063A18C-6A9D-48D7-B055-D7D69309273D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E063A18C-6A9D-48D7-B055-D7D69309273D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A1D566C-D20F-474D-A576-9DF6A389A872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A1D566C-D20F-474D-A576-9DF6A389A872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A1D566C-D20F-474D-A576-9DF6A389A872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A1D566C-D20F-474D-A576-9DF6A389A872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
