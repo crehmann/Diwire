@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Diwire.Generation.Roslyn
 {
-    public readonly struct ModuleInfo
+    public class ModuleInfo
     {
         public ModuleInfo(INamedTypeSymbol moduleSymbol)
         {

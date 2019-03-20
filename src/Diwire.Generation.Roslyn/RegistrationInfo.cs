@@ -1,10 +1,9 @@
 ﻿using Microsoft.CodeAnalysis;
-using System;
 using System.Linq;
 
 namespace Diwire.Generation.Roslyn
 {
-    public readonly struct RegistrationInfo
+    public class RegistrationInfo
     {
         public RegistrationInfo(AttributeData registerTypeAttribute)
         {
