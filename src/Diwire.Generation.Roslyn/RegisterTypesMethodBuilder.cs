@@ -42,17 +42,9 @@ namespace Diwire.Generation.Roslyn
                 .WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed);
         }
 
-        private static string CreateConstructorParameters(IMethodSymbol methodSymbol)
-        {
-            if (methodSymbol.Parameters.Length == 0)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                //TODO
-                return "";
-            }
-        }
+        private static string CreateConstructorParameters(IMethodSymbol methodSymbol) 
+            => methodSymbol.Parameters.Length == 0
+                ? string.Empty
+                : string.Join(",", methodSymbol.Parameters.Select(parameter => $"_.Resolve<{parameter.Type.GetFullName()}>()"));
     }
 }
