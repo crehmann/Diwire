@@ -1,7 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Diwire.Abstraction</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.1-alpha</Version>
+    <PackageProjectUrl>https://github.com/crehmann/Diwire</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/crehmann/Diwire</RepositoryUrl>
+    <PackageTags>DI, IoC</PackageTags>
+    <Copyright>Copyright © Christoph Rehmann 2019</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company />
+    <Authors>crehmann</Authors>
   </PropertyGroup>
 
 </Project>
