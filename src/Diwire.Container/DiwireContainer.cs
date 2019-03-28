@@ -13,6 +13,8 @@ namespace Diwire.Container
             _registry = new Dictionary<Type, Func<object>>();
         }
 
+        public bool Contains<T>() => _registry.ContainsKey(typeof(T));
+
         public IContainerRegistry RegisterSingelton<T>(Func<IContainerProvider, T> factory)
         {
             var typeOfT = typeof(T);
@@ -49,5 +51,7 @@ namespace Diwire.Container
                 throw new InvalidOperationException($"The type '{typeof(T)}' is not registered in the container.");
             }
         }
+
+        public bool Remove<T>() => _registry.Remove(typeof(T));
     }
 }

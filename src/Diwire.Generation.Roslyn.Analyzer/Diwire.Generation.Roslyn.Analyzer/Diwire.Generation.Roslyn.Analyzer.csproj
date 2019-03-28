@@ -17,6 +17,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Company />
     <Authors>crehmann</Authors>
+    <files>
+      <file src="Build\Company.Roslyn.dll" target="analyzers\dotnet\cs" />
+    </files>
   </PropertyGroup>
 
   <ItemGroup>

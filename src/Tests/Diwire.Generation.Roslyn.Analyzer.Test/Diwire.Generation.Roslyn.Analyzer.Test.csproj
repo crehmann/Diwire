@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer.csproj" />
     <ProjectReference Include="..\..\Diwire.Generation\Diwire.Generation.csproj" />
-    <ProjectReference Include="..\Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer.csproj" />
   </ItemGroup>
 
 </Project>
