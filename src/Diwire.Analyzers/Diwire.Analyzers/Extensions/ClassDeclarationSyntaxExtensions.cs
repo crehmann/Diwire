@@ -1,7 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Linq;
 
-namespace Diwire.Generation.Roslyn.Extensions
+namespace Diwire.Analyzers.Extensions
 {
     public static class ClassDeclarationSyntaxExtensions
     {

@@ -8,16 +8,17 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Diwire.Analyzers.Helpers;
 using Microsoft.CodeAnalysis.Formatting;
 
-namespace Diwire.Generation.Roslyn.Analyzer
+namespace Diwire.Analyzers
 {
-    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(DiwireGenerationRoslynCodeFixProvider)), Shared]
-    public class DiwireGenerationRoslynCodeFixProvider : CodeFixProvider
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(RegisterTypeCodeFixProvider)), Shared]
+    public class RegisterTypeCodeFixProvider : CodeFixProvider
     {
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
 
-        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(DiwireGenerationRoslynAnalyzer.DiagnosticId);
+        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(RegisterTypeAnalyzer.DiagnosticId);
 
         public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
@@ -36,7 +37,7 @@ namespace Diwire.Generation.Roslyn.Analyzer
                 CodeAction.Create(
                     title: Title.ToString(),
                     createChangedSolution: c => OverrideRegisterTypeMethodAsync(context.Document, declaration, c),
-                    equivalenceKey: nameof(DiwireGenerationRoslynCodeFixProvider)),
+                    equivalenceKey: nameof(RegisterTypeCodeFixProvider)),
                 diagnostic);
         }
 
@@ -45,8 +46,7 @@ namespace Diwire.Generation.Roslyn.Analyzer
             var semanticModel = await document.GetSemanticModelAsync(cancellationToken);
             var symbol = semanticModel.GetDeclaredSymbol(classDeclaration);
             var module = new ModuleInfo(symbol);
-            var method = RegisterTypesMethodBuilder
-                .Build(module)
+            var method = module.Build()
                 .WithAdditionalAnnotations(Formatter.Annotation);
 
             var updatedClassDeclaration = classDeclaration.AddMembers(method);

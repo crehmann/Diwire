@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Diwire.Generation.Attributes
+namespace Diwire.Abstraction.Attributes
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class RegisterTypeAttribute : Attribute
@@ -9,6 +9,12 @@ namespace Diwire.Generation.Attributes
         {
             FromType = fromType ?? throw new ArgumentNullException(nameof(fromType));
             ToType = toType ?? throw new ArgumentNullException(nameof(toType));
+            Lifetime = lifetime;
+        }
+
+        public RegisterTypeAttribute(Type type, Lifetime lifetime = Lifetime.Singelton)
+        {
+            FromType = ToType = type ?? throw new ArgumentNullException(nameof(type));
             Lifetime = lifetime;
         }
 

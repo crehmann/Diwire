@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Diwire.Abstraction</PackageId>
@@ -15,5 +15,8 @@
     <Company />
     <Authors>crehmann</Authors>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diwire.Analyzers\Diwire.Analyzers\Diwire.Analyzers.csproj" />
+  </ItemGroup>
 
 </Project>

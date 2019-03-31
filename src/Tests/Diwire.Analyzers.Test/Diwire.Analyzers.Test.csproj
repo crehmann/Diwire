@@ -13,8 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer\Diwire.Generation.Roslyn.Analyzer.csproj" />
-    <ProjectReference Include="..\..\Diwire.Generation\Diwire.Generation.csproj" />
+    <ProjectReference Include="..\..\Diwire.Analyzers\Diwire.Analyzers\Diwire.Analyzers.csproj" />
   </ItemGroup>
 
 </Project>

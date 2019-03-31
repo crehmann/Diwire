@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard1.6</TargetFramework>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Diwire.Generation.Roslyn.Analyzer</PackageId>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Diwire.Analyzers</PackageId>
     <Version>0.0.1-alpha</Version>
+    <Description>Diwire.Analyzers</Description>
     <PackageProjectUrl>https://github.com/crehmann/Diwire</PackageProjectUrl>
     <RepositoryUrl>https://github.com/crehmann/Diwire</RepositoryUrl>
     <PackageTags>DI, IoC</PackageTags>
@@ -17,9 +17,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Company />
     <Authors>crehmann</Authors>
-    <files>
-      <file src="Build\Company.Roslyn.dll" target="analyzers\dotnet\cs" />
-    </files>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,12 +33,6 @@
 
   <ItemGroup>
     <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
-    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Diwire.Generation.Roslyn\Diwire.Generation.Roslyn.csproj" />
-    <ProjectReference Include="..\..\Diwire.Generation\Diwire.Generation.csproj" />
   </ItemGroup>
 
 </Project>

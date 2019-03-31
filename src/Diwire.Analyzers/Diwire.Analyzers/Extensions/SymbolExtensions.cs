@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Diwire.Generation.Roslyn.Extensions
+namespace Diwire.Analyzers.Extensions
 {
     public static class SymbolExtensions
     {
-        public static IEnumerable<AttributeData> GetAttributes<T>(this ISymbol symbol)
+        public static IEnumerable<AttributeData> GetAttributes(this ISymbol symbol, string fullName)
             => symbol.GetAttributes()
-            .Where(x => string.Join(".", x.AttributeClass.ContainingNamespace.ToString(), x.AttributeClass.Name) == typeof(T).FullName);
+            .Where(x => string.Join(".", x.AttributeClass.ContainingNamespace.ToString(), x.AttributeClass.Name) == fullName);
 
         public static string GetFullName(this ISymbol symbol)
             => string.Join(".", symbol.ContainingNamespace, symbol.Name);

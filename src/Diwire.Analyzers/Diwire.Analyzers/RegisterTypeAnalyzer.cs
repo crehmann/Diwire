@@ -1,15 +1,14 @@
 using System.Collections.Immutable;
-using Diwire.Abstraction;
-using Diwire.Generation.Roslyn.Extensions;
+using Diwire.Analyzers.Extensions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace Diwire.Generation.Roslyn.Analyzer
+namespace Diwire.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class DiwireGenerationRoslynAnalyzer : DiagnosticAnalyzer
+    public class RegisterTypeAnalyzer : DiagnosticAnalyzer
     {
         public const string DiagnosticId = "DiwireGenerationRoslynAnalyzer";
         private const string Category = "Diwire.CodeGeneration";
@@ -17,7 +16,7 @@ namespace Diwire.Generation.Roslyn.Analyzer
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
+        private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Error, isEnabledByDefault: true, description: Description);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
 
@@ -31,8 +30,8 @@ namespace Diwire.Generation.Roslyn.Analyzer
             var classDeclaration = (ClassDeclarationSyntax)context.Node;
             var symbol = context.SemanticModel.GetDeclaredSymbol(classDeclaration);
 
-            if (symbol.HasBaseType(typeof(DiwireModuleGenerationMarker))
-                && !classDeclaration.IsOverridingMethod(nameof(IModule.RegisterTypes)))
+            if (symbol.Implements(Constants.ModuleInterface)
+                && !classDeclaration.IsOverridingMethod(Constants.RegisterTypeMethod))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
             }

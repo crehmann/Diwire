@@ -4,9 +4,9 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TestHelper;
-using Diwire.Generation.Roslyn.Analyzer;
+using Diwire.Analyzers;
 
-namespace Diwire.Generation.Roslyn.Analyzer.Test
+namespace Diwire.Analyzers.Test
 {
     [TestClass]
     public class UnitTest : CodeFixVerifier
@@ -41,7 +41,7 @@ namespace Diwire.Generation.Roslyn.Analyzer.Test
     }";
             var expected = new DiagnosticResult
             {
-                Id = "DiwireGenerationRoslynAnalyzer",
+                Id = "DiwireAnalyzers",
                 Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
@@ -71,12 +71,12 @@ namespace Diwire.Generation.Roslyn.Analyzer.Test
 
         protected override CodeFixProvider GetCSharpCodeFixProvider()
         {
-            return new DiwireGenerationRoslynCodeFixProvider();
+            return new RegisterTypeCodeFixProvider();
         }
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new DiwireGenerationRoslynAnalyzer();
+            return new RegisterTypeAnalyzer();
         }
     }
 }
