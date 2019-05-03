@@ -14,7 +14,7 @@ namespace Diwire.Analyzers.Helpers
         private const string ContainerRegistryParameterName = "containerRegistry";
         private static readonly MethodDeclarationSyntax methodDeclaration = SyntaxFactory
                 .MethodDeclaration(SyntaxFactory.ParseTypeName("void"), Constants.RegisterTypeMethod)
-                .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword), SyntaxFactory.Token(SyntaxKind.OverrideKeyword))
+                .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
                 .AddParameterListParameters(SyntaxFactory.Parameter(
                     attributeLists: SyntaxFactory.List<AttributeListSyntax>(),
                     modifiers: SyntaxFactory.TokenList(),
@@ -45,13 +45,15 @@ namespace Diwire.Analyzers.Helpers
             var statement = new StringBuilder()
                 .Append(ContainerRegistryParameterName)
                 .Append(".")
-                .Append(Constants.RegisterSingeltonMethod)
+                .Append(registration.Lifetime == Constants.LifetimeSingelton
+                    ? Constants.RegisterSingeltonMethod
+                    : Constants.RegisterTransientMethod)
                 .Append($"<{registration.FromType.GetFullName()}>")
                 .Append($"(_ => new {registration.Constructor.ContainingSymbol.GetFullName()}({CreateConstructorParameters(registration.Constructor)}));")
                 .ToString();
-            return SyntaxFactory
-                .ParseStatement(statement)
-                .WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed);
+
+            return SyntaxFactory.ParseStatement(statement)
+                            .WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed);
         }
 
         private static string CreateConstructorParameters(IMethodSymbol methodSymbol)

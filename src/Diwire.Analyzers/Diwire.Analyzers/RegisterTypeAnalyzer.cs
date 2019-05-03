@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using System.Linq;
 using Diwire.Analyzers.Extensions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -31,6 +32,7 @@ namespace Diwire.Analyzers
             var symbol = context.SemanticModel.GetDeclaredSymbol(classDeclaration);
 
             if (symbol.Implements(Constants.ModuleInterface)
+                && symbol.GetAttributes().Any(x => Constants.RegisterTypeAttribute == x.AttributeClass.GetFullName())
                 && !classDeclaration.IsOverridingMethod(Constants.RegisterTypeMethod))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));

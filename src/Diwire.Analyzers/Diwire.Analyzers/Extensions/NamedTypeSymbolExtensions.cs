@@ -9,6 +9,6 @@ namespace Diwire.Analyzers.Extensions
             => symbol.BaseType != null;
 
         public static bool Implements(this INamedTypeSymbol symbol, string fullName)
-            => symbol.ContainingType.AllInterfaces.Any(x => x.GetFullName() == fullName);
+            => symbol.AllInterfaces.Any(x => x.GetFullName() == fullName);
     }
 }

@@ -7,9 +7,13 @@ namespace Diwire.Analyzers.Helpers
     {
         public RegistrationInfo(AttributeData registerTypeAttribute)
         {
+            var constructorIndex = registerTypeAttribute.ConstructorArguments.Length == 3
+                ? 1
+                : 0;
+            var lifetimeIndex = constructorIndex + 1;
             FromType = (INamedTypeSymbol)registerTypeAttribute.ConstructorArguments[0].Value;
-            Constructor = ((INamedTypeSymbol)registerTypeAttribute.ConstructorArguments[1].Value).Constructors.Single();
-            Lifetime = ((int)registerTypeAttribute.ConstructorArguments[2].Value);
+            Constructor = ((INamedTypeSymbol)registerTypeAttribute.ConstructorArguments[constructorIndex].Value).Constructors.Single();
+            Lifetime = ((int)registerTypeAttribute.ConstructorArguments[lifetimeIndex].Value);
         }
 
         public INamedTypeSymbol FromType { get; }
