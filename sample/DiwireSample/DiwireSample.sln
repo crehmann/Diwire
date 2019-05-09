@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiwireSample.ConsoleApp", "DiwireSample.ConsoleApp\DiwireSample.ConsoleApp.csproj", "{B3840A39-5641-4961-B048-EEE637594AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiwireSample.MyServices", "DiwireSample.MyServices\DiwireSample.MyServices.csproj", "{8CC4FE06-D17A-4FEA-B8FD-47AD64BDB8E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3840A39-5641-4961-B048-EEE637594AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3840A39-5641-4961-B048-EEE637594AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3840A39-5641-4961-B048-EEE637594AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3840A39-5641-4961-B048-EEE637594AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC4FE06-D17A-4FEA-B8FD-47AD64BDB8E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC4FE06-D17A-4FEA-B8FD-47AD64BDB8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC4FE06-D17A-4FEA-B8FD-47AD64BDB8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC4FE06-D17A-4FEA-B8FD-47AD64BDB8E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {943FF8FB-61A4-445A-9E8F-4F2CF0093EEB}
+	EndGlobalSection
+EndGlobal
