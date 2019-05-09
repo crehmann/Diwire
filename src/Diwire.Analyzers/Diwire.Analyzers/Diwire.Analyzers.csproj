@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <PackageId>Diwire.Analyzers</PackageId>
-    <Version>0.0.2-alpha</Version>
+    <Version>0.0.3-alpha</Version>
     <Description>Diwire.Analyzers</Description>
     <PackageProjectUrl>https://github.com/crehmann/Diwire</PackageProjectUrl>
     <RepositoryUrl>https://github.com/crehmann/Diwire</RepositoryUrl>
@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 
 </Project>

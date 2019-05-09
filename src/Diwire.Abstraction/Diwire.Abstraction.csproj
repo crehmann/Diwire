@@ -6,7 +6,7 @@
   <PropertyGroup>
     <PackageId>Diwire.Abstraction</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.2-alpha</Version>
+    <Version>0.0.3-alpha</Version>
     <PackageProjectUrl>https://github.com/crehmann/Diwire</PackageProjectUrl>
     <RepositoryUrl>https://github.com/crehmann/Diwire</RepositoryUrl>
     <PackageTags>DI, IoC</PackageTags>

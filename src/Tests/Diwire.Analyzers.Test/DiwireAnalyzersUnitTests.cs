@@ -6,7 +6,7 @@ using TestHelper;
 namespace Diwire.Analyzers.Test
 {
     [TestClass]
-    public class UnitTest : CodeFixVerifier
+    public class DiwireAnalyzersUnitTests : CodeFixVerifier
     {
 
         [TestMethod]
