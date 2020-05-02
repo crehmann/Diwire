@@ -52,6 +52,18 @@ namespace Diwire.Container
             }
         }
 
+        public object Resolve(Type type)
+        {
+            if (_registry.TryGetValue(type, out Func<object> factory))
+            {
+                return factory();
+            }
+            else
+            {
+                throw new InvalidOperationException($"The type '{type}' is not registered in the container.");
+            }
+        }
+
         public bool Remove<T>() => _registry.Remove(typeof(T));
     }
 }
