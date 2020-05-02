@@ -1,6 +1,6 @@
 # Diwire
-[![Build Status](https://dev.azure.com/rehmann/Diwire/_apis/build/status/Diwire%20%5BMaster%5D?branchName=master)](https://dev.azure.com/rehmann/Diwire/_build/latest?definitionId=1&branchName=master)
-![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Diwire.Container)
+![Build Status](https://dev.azure.com/rehmann/Diwire/_apis/build/status/Diwire%20%5BMaster%5D?branchName=master)
+[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Diwire.Container)](https://www.nuget.org/packages/Diwire.Container)
 
 Diwire is a lightweight IoC container for Microsoft .NET. It provides **D**ependency **i**njection **wi**thout **re**flection and is therefore  unlikely many other IoC containers.
 
