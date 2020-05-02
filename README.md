@@ -1,6 +1,6 @@
 # Diwire
 [![Build Status](https://dev.azure.com/rehmann/Diwire/_apis/build/status/Diwire%20%5BMaster%5D?branchName=master)](https://dev.azure.com/rehmann/Diwire/_build/latest?definitionId=1&branchName=master)
-![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Diwire.Container?style=flat-square)
+![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Diwire.Container)
 
 Diwire is a lightweight IoC container for Microsoft .NET. It provides **D**ependency **i**njection **wi**thout **re**flection and is therefore  unlikely many other IoC containers.
 
@@ -9,7 +9,7 @@ This project was created to play around with dependency injection and the Roslyn
 
 ### Features
 * Lightweight IoC Container
-* Supports Singleton and Transient lifetime 
+* Supports Singleton and Transient lifetime scope
 
 ### Limitations
 * Only a single constructor (public or internal) is supported
@@ -18,11 +18,11 @@ This project was created to play around with dependency injection and the Roslyn
 ### Todos / Future Improvements
 * Do some performance measurements
 * Using the newly announced [C# Source Generators](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/) instead of CodeFixProvider
-* Adding unit tests for the analyzer & code fix provder
+* Adding unit tests for the analyzer & code fix provider
 * Support for custom lifetime scopes
 
 ## Quick Start
-Install the [Diwire nuget package](https://www.nuget.org/packages/Diwire.Container/).
+Install the latest [Diwire nuget package](https://www.nuget.org/packages/Diwire.Container/).
 
 ### Register types by hand
 ```csharp
@@ -40,8 +40,8 @@ container.RegisterSingleton(_ => new MyViewModel());
  ```
 
 ### Register types by using attributes
-But wait, you definitiy don't want to register all the types by specifying a factory method! Everytime a parameter of the constructor changes, you whould have to update the registration to match the changes.
-Here comes the Roslyn diagnostic analyzer and code fix provider to the rescue.
+But wait, you definitiy don't want to register all the types by specifying a factory method! Everytime a parameter of the constructor changes, you whould have to update the registration to match the parameters.
+Here comes the Diwire code fix provider to the rescue.
 Create a module class that implements IModule and register types by using the RegisterType attribute:
 ```csharp
 [RegisterType(typeof(IClock), typeof(Clock))]
@@ -65,7 +65,6 @@ public class MyServicesModule : IModule
     }
 }
 ```
-
 
 ### Resolving types
 ```csharp
