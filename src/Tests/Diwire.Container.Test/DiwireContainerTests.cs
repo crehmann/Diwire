@@ -15,24 +15,24 @@ namespace Diwire.Container.Test
         }
 
         [Fact]
-        public void RegisterSingelton_WhenTypeAlreadyRegisteredAsSingelton_ShouldThrowException()
+        public void RegisterSingleton_WhenTypeAlreadyRegisteredAsSingleton_ShouldThrowException()
         {
             // Arrange
-            _container.RegisterSingelton<IDependency1>(_ => new Dependency1());
+            _container.RegisterSingleton<IDependency1>(_ => new Dependency1());
 
             // Act & Assert
-            _container.Invoking(x => x.RegisterSingelton<IDependency1>(_ => new Dependency1()))
+            _container.Invoking(x => x.RegisterSingleton<IDependency1>(_ => new Dependency1()))
                 .Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
-        public void RegisterSingelton_WhenTypeAlreadyRegisteredAsTransient_ShouldThrowException()
+        public void RegisterSingleton_WhenTypeAlreadyRegisteredAsTransient_ShouldThrowException()
         {
             // Arrange
             _container.RegisterTransient<IDependency1>(_ => new Dependency1());
 
             // Act & Assert
-            _container.Invoking(x => x.RegisterSingelton<IDependency1>(_ => new Dependency1()))
+            _container.Invoking(x => x.RegisterSingleton<IDependency1>(_ => new Dependency1()))
                 .Should().Throw<InvalidOperationException>();
         }
 
@@ -48,10 +48,10 @@ namespace Diwire.Container.Test
         }
 
         [Fact]
-        public void RegisterTransient_WhenTypeAlreadyRegisteredAsSingelton_ShouldThrowException()
+        public void RegisterTransient_WhenTypeAlreadyRegisteredAsSingleton_ShouldThrowException()
         {
             // Arrange
-            _container.RegisterSingelton<IDependency1>(_ => new Dependency1());
+            _container.RegisterSingleton<IDependency1>(_ => new Dependency1());
 
             // Act & Assert
             _container.Invoking(x => x.RegisterTransient<IDependency1>(_ => new Dependency1()))
@@ -67,10 +67,10 @@ namespace Diwire.Container.Test
         }
 
         [Fact]
-        public void Resolve_WhenRegisterSingelton_ShouldReturnSingelton()
+        public void Resolve_WhenRegisterSingleton_ShouldReturnSingleton()
         {
             // Arrange
-            _container.RegisterSingelton<IDependency1>(_ => new Dependency1());
+            _container.RegisterSingleton<IDependency1>(_ => new Dependency1());
 
             // Act & Assert
             var first = _container.Resolve<IDependency1>();
@@ -95,10 +95,10 @@ namespace Diwire.Container.Test
         }
 
         [Fact]
-        public void Contains_WhenRegisterSingelton_ShouldReturnTrue()
+        public void Contains_WhenRegisterSingleton_ShouldReturnTrue()
         {
             // Arrange
-            _container.RegisterSingelton<IDependency1>(_ => new Dependency1());
+            _container.RegisterSingleton<IDependency1>(_ => new Dependency1());
 
             // Assert
             var containsType = _container.Contains<IDependency1>();
@@ -147,7 +147,7 @@ namespace Diwire.Container.Test
         public void Remove_WhenTypeRegistered_ShouldRemoveTypeAndReturnTrue()
         {
             // Arrange
-            _container.RegisterSingelton<IDependency1>(_ => new Dependency1());
+            _container.RegisterSingleton<IDependency1>(_ => new Dependency1());
 
             // Act
             var wasRemoved = _container.Remove<IDependency1>();

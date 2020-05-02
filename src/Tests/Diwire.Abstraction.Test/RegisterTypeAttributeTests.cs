@@ -30,7 +30,7 @@ namespace Diwire.Abstraction.Test
         {
             // Arrange
             var expectedType = typeof(Dependency1);
-            var expectedLifetime = Lifetime.Singelton;
+            var expectedLifetime = Lifetime.Singleton;
 
             // Act
             var attribute = new RegisterTypeAttribute(expectedType,  expectedLifetime);

@@ -8,7 +8,7 @@ namespace Diwire.Abstraction
 
         IContainerRegistry RegisterTransient<T>(Func<IContainerProvider, T> factory);
 
-        IContainerRegistry RegisterSingelton<T>(Func<IContainerProvider, T> factory);
+        IContainerRegistry RegisterSingleton<T>(Func<IContainerProvider, T> factory);
 
         bool Remove<T>();
     }

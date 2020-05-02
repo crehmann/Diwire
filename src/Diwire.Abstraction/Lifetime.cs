@@ -2,7 +2,7 @@
 {
     public enum Lifetime
     {
-        Singelton = 0,
+        Singleton = 0,
         Transient = 1
     }
 }

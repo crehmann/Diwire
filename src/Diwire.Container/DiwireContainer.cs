@@ -15,7 +15,7 @@ namespace Diwire.Container
 
         public bool Contains<T>() => _registry.ContainsKey(typeof(T));
 
-        public IContainerRegistry RegisterSingelton<T>(Func<IContainerProvider, T> factory)
+        public IContainerRegistry RegisterSingleton<T>(Func<IContainerProvider, T> factory)
         {
             var typeOfT = typeof(T);
             if (_registry.ContainsKey(typeOfT))

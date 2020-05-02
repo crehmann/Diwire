@@ -45,8 +45,8 @@ namespace Diwire.Analyzers.Helpers
             var statement = new StringBuilder()
                 .Append(ContainerRegistryParameterName)
                 .Append(".")
-                .Append(registration.Lifetime == Constants.LifetimeSingelton
-                    ? Constants.RegisterSingeltonMethod
+                .Append(registration.Lifetime == Constants.LifetimeSingleton
+                    ? Constants.RegisterSingletonMethod
                     : Constants.RegisterTransientMethod)
                 .Append($"<{registration.FromType.GetFullName()}>")
                 .Append($"(_ => new {registration.Constructor.ContainingSymbol.GetFullName()}({CreateConstructorParameters(registration.Constructor)}));")
